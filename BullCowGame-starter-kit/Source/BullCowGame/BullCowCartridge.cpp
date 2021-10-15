@@ -9,14 +9,24 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 
     Super::BeginPlay();
     PrintLine(TEXT("Welcome to the Bull Cow Game!"));
-    PrintLine(TEXT("Please hit tab to access the terminal."));
-    PrintLine(TEXT("After you accessed the terminal, \nPlease enter to continue."));
+    PrintLine(TEXT("Guess the 5 letter word.")); //Magic number Remove!
+    PrintLine(TEXT("\nPress enter to continue."));
 
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
 {
-    
+
     ClearScreen();
-    FString HiddenWord = TEXT("magic");
+    FString HiddenWord = TEXT("magic"); //Move outside of this function.
+    
+    if (Input == HiddenWord)
+    {
+        PrintLine(TEXT("You Win!")); 
+    }
+    else
+    {
+        PrintLine(TEXT("That is not correct. You Lose."));
+    }
+
 }
